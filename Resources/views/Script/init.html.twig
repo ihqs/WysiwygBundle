@@ -1,0 +1,12 @@
+<script type="text/javascript" src="{{ library_src }}"></script>
+<script type="text/javascript">
+    var wysiwyg = new ihqs.wysiwyg(
+        "{{ selector }}",
+        {
+            library: "{{ library }}",
+            set:     "{{ set }}",
+            theme:   "{{ theme }}"
+        }
+    );
+    wysiwyg.initHandler();
+</script>
