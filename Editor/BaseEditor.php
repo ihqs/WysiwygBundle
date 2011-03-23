@@ -1,6 +1,6 @@
 <?php
 
-namespace IHQS\Editor\BaseEditor;
+namespace IHQS\WysiwygBundle\Editor;
 
 abstract class BaseEditor
 {
@@ -20,5 +20,11 @@ abstract class BaseEditor
     function isSetAvailable($set)
     {
         
+    }
+
+    public static function factory($editor)
+    {
+        $editor = 'IHQS\\WysiwygBundle\\Editor\\' . $editor;
+        return$editor;
     }
 }

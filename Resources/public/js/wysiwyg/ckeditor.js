@@ -6,8 +6,6 @@ ihqs.wysiwyg.ckeditor = function(settings, theme)
     this.theme    = theme;
 }
 
-ihqs.wysiwyg.ckeditor.lib_path = '/vendor/ckeditor/ckeditor_basic.js';
-
 ihqs.wysiwyg.ckeditor.prototype.checkDependencies = function()
 {
 

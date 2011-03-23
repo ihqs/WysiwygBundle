@@ -13,6 +13,7 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Config\Definition\Processor;
 
 use Symfony\Component\Finder\Finder;
+use IHQS\WysiwygBundle\Editor\BaseEditor;
 
 class IHQSWysiwygExtension extends Extension
 {
@@ -26,10 +27,17 @@ class IHQSWysiwygExtension extends Extension
         $config         = $processor->process($configuration->getConfigTree($container->getParameter('kernel.debug')), $configs);
 
 
-        $container->setParameter('ihqs_wysiwyg.selector',       $config['selector']);
-        $container->setParameter('ihqs_wysiwyg.editor.library', $config['editor']['library']);
-        $container->setParameter('ihqs_wysiwyg.editor.set',     $config['editor']['set']);
-        $container->setParameter('ihqs_wysiwyg.editor.theme',   $config['editor']['theme']);
+        if(isset($config['selector'])) { $container->setParameter('ihqs_wysiwyg.selector', $config['selector']); }
+
+        if(isset($config['editor']))
+        {
+            if(isset($config['editor']['library'])) { $container->setParameter('ihqs_wysiwyg.editor.library', $config['editor']['library']); }
+            if(isset($config['editor']['set']))     { $container->setParameter('ihqs_wysiwyg.editor.set',     $config['editor']['set']); }
+            if(isset($config['editor']['theme']))   { $container->setParameter('ihqs_wysiwyg.editor.theme',   $config['editor']['theme']); }
+        }
+
+        $editor = new Definition(BaseEditor::factory(ucfirst($container->getParameter('ihqs_wysiwyg.editor.library'))));
+        $container->setDefinition('ihqs_wysiwyg.editor', $editor);
     }
 
     public function getXsdValidationBasePath()

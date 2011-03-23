@@ -6,8 +6,6 @@ ihqs.wysiwyg.markitup = function(settings, theme)
     this.theme    = theme;
 }
 
-ihqs.wysiwyg.markitup.lib_path = '/vendor/markitup/markitup/jquery.markitup.js';
-
 ihqs.wysiwyg.markitup.prototype.checkDependencies = function()
 {
     if(typeof($) == "undefined")
