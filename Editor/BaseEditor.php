@@ -13,10 +13,30 @@ abstract class BaseEditor
 	/** @var string	$baseUri	Base uri where to find our javascript files */
     protected $baseUri = '/bundles/ihqswysiwyg/js';
 
+	/** @var string	$settings	Settings we wanna use */
+	protected $settings;
+
+	/** @var string	$theme		Theme we wanna use */
+	protected $theme;
+
+	/**
+	 * Class constructor
+	 *
+	 * @param	string	$settings	Settings we wanna use
+	 * @param	string	$theme		Theme we wanna use
+	 */
+	public function __construct($settings, $theme)
+	{
+		$this->settings = $settings;
+		$this->theme = $theme;
+
+		$this->checkSettings();
+		$this->checkTheme();
+	}
+
+
 	/**
      * Where we'll find the library uri ?
-     *
-     * @author  Antoine Berranger <antoine@ihqs.net>
      *
      * @return	string	uri of the library
      */
@@ -25,16 +45,12 @@ abstract class BaseEditor
 	/**
      * Get available themes for this library
      *
-     * @author  Antoine Berranger <antoine@ihqs.net>
-     *
      * @return	array	Available themes
      */
 	abstract protected function getAvailableThemes();
 
 	/**
      * Get available sets for this library
-     *
-     * @author  Antoine Berranger <antoine@ihqs.net>
      *
      * @return	array	Available sets
      */
@@ -44,8 +60,6 @@ abstract class BaseEditor
      * Checking if specified theme is available for this editor
      *
 	 * @todo	implement it :p
-	 *
-     * @author  Antoine Berranger <antoine@ihqs.net>
      *
      * @param	string	name of the theme we want to use
 	 * @throws	\InvalidationArgumentException	Theme is unknown for this library
@@ -58,7 +72,7 @@ abstract class BaseEditor
 	/**
      * Checking if specified settings are available for this editor
      *
-     * @author  Antoine Berranger <antoine@ihqs.net>
+	 * @todo	implement it :p
      *
      * @param	string	name of the set we want to use
 	 * @throws	\InvalidationArgumentException	Set is unknown for this library
@@ -70,8 +84,6 @@ abstract class BaseEditor
 
 	/**
 	 * "Factory" method to get class for specified editor
-	 *
-     * @author  Antoine Berranger <antoine@ihqs.net>
 	 *
 	 * @todo	remove or upgrade this factory to enable custom Editor classes written by users and clean this ugly method
 	 *

@@ -17,8 +17,6 @@ class Configuration
 	/**
      * Builds a configuration tree in order to ensure that yml configuration is well formatted
      *
-     * @author  Antoine Berranger <antoine@ihqs.net>
-     *
 	 * @param	boolean	$kernelDebug	Debugging or not ?
 	 *
      * @return  \Symfony\Component\Config\Definition\NodeInterface    A Tree build into an array

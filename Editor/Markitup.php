@@ -23,7 +23,8 @@ class Markitup extends BaseEditor
 	protected function getAvailableThemes()
 	{
 		return array(
-
+			'default',
+			'markitup',
 		);
 	}
 
@@ -33,7 +34,7 @@ class Markitup extends BaseEditor
 	protected function getAvailableSets()
 	{
 		return array(
-
+			'default',
 		);
 	}
 }

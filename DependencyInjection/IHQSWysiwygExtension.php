@@ -31,8 +31,6 @@ class IHQSWysiwygExtension extends Extension
 	 *    - set : 'default'
 	 *    - theme : 'markitup'
      *
-     * @author  Antoine Berranger <antoine@ihqs.net>
-     *
      * @param	array            $config    An array of configuration settings
      * @param	ContainerBuilder $container A ContainerBuilder instance
      */
@@ -56,6 +54,10 @@ class IHQSWysiwygExtension extends Extension
         }
 
         $editor = new Definition(BaseEditor::factory(ucfirst($container->getParameter('ihqs_wysiwyg.editor.library'))));
+		$editor->setArguments(array(
+			$container->getParameter('ihqs_wysiwyg.editor.set'),
+			$container->getParameter('ihqs_wysiwyg.editor.theme'),
+		));
         $container->setDefinition('ihqs_wysiwyg.editor', $editor);
     }
 	
