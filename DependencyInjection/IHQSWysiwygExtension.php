@@ -13,7 +13,7 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Config\Definition\Processor;
 
 use Symfony\Component\Finder\Finder;
-use IHQS\WysiwygBundle\Editor\BaseEditor;
+use IHQS\WysiwygBundle\Editor\EditorFactory;
 
 /**
  * Configuration of our Bundle
@@ -53,7 +53,7 @@ class IHQSWysiwygExtension extends Extension
             if(isset($config['editor']['theme']))   { $container->setParameter('ihqs_wysiwyg.editor.theme',   $config['editor']['theme']); }
         }
 
-        $editor = new Definition(BaseEditor::factory(ucfirst($container->getParameter('ihqs_wysiwyg.editor.library'))));
+        $editor = new Definition(EditorFactory::factory(ucfirst($container->getParameter('ihqs_wysiwyg.editor.library'))));
 		$editor->setArguments(array(
 			$container->getParameter('ihqs_wysiwyg.editor.set'),
 			$container->getParameter('ihqs_wysiwyg.editor.theme'),
