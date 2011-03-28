@@ -7,8 +7,8 @@ The aim of this bundle is to nest miscellanous wysiwyg editors to allow you to u
 ## TODO
 
 This bundle is in DEVEL mode
-* add Editor classes in order to ensure that user configuration is ok
-* add other editors, sets and themes
+ * enable custom editors, custom sets, custom themes
+ * add other editors, sets and themes
 
 ## Installation
 

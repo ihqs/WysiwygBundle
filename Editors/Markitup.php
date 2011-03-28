@@ -25,7 +25,7 @@ class Markitup extends BaseEditor
 	public function getAvailableThemes()
 	{
 		return array(
-			'default',
+			'simple',
 			'markitup',
 		);
 	}
