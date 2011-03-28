@@ -15,8 +15,27 @@ use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Finder\Finder;
 use IHQS\WysiwygBundle\Editor\BaseEditor;
 
+/**
+ * Configuration of our Bundle
+ *
+ * @author  Antoine Berranger <antoine@ihqs.net>
+ */
 class IHQSWysiwygExtension extends Extension
 {
+	/**
+     * Loading own configuration and overrinding it by user ones.
+	 * Configuration defaults :
+	 *  - selector : 'wysiwyg_editor'
+	 *  - editor :
+	 *    - library : 'markitup'
+	 *    - set : 'default'
+	 *    - theme : 'markitup'
+     *
+     * @author  Antoine Berranger <antoine@ihqs.net>
+     *
+     * @param	array            $config    An array of configuration settings
+     * @param	ContainerBuilder $container A ContainerBuilder instance
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -39,17 +58,26 @@ class IHQSWysiwygExtension extends Extension
         $editor = new Definition(BaseEditor::factory(ucfirst($container->getParameter('ihqs_wysiwyg.editor.library'))));
         $container->setDefinition('ihqs_wysiwyg.editor', $editor);
     }
-
+	
+    /**
+     * @see Symfony\Component\DependencyInjection\Extension\ExtensionInterface
+     */
     public function getXsdValidationBasePath()
     {
         return null;
     }
 
+    /**
+     * @see Symfony\Component\DependencyInjection\Extension\ExtensionInterface
+     */
     public function getNamespace()
     {
         return 'http://www.symfony.com/shemas/dic/symfony';
     }
 
+    /**
+     * @see Symfony\Component\DependencyInjection\Extension\ExtensionInterface
+     */
     public function getAlias()
     {
         return "ihqs_wysiwyg";
