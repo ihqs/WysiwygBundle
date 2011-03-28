@@ -19,17 +19,11 @@ class ScriptController extends BaseController
      */
     public function initAction()
     {
-		$editor = $this->container->get('ihqs_wysiwyg.editor');
-		
         return $this->render(
             'IHQSWysiwygBundle:Script:init.html.twig',
             array(
                 'selector'      => $this->container->getParameter('ihqs_wysiwyg.selector'),
-
-                'library_src'   => $editor->getLibUri(),
-                'library'       => $this->container->getParameter('ihqs_wysiwyg.editor.library'),
-                'set'           => $this->container->getParameter('ihqs_wysiwyg.editor.set'),
-                'theme'         => $this->container->getParameter('ihqs_wysiwyg.editor.theme'),
+				'editor'		=> $this->container->get('ihqs_wysiwyg.editor'),
             )
         );
     }

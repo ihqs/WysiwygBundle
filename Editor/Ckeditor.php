@@ -36,4 +36,12 @@ class Ckeditor extends BaseEditor
 
 		);
 	}
+
+	/**
+     * @see \IHQS\WysiwygBundle\Editor\BaseEditor
+     */
+	public function getName()
+	{
+		return 'Ckeditor';
+	}
 }

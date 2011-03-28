@@ -34,6 +34,25 @@ abstract class BaseEditor
 		$this->checkTheme();
 	}
 
+	/**
+	 * Get current theme's name
+	 *
+	 * @return string
+	 */
+	public function getTheme()
+	{
+		return $this->theme;
+	}
+
+	/**
+	 * Get current settings' name
+	 *
+	 * @return string
+	 */
+	public function getSet()
+	{
+		return $this->settings;
+	}
 
 	/**
      * Where we'll find the library uri ?
@@ -55,6 +74,13 @@ abstract class BaseEditor
      * @return	array	Available sets
      */
 	abstract protected function getAvailableSets();
+
+	/**
+	 * Get library name
+	 *
+	 * @return	string	Name of the javascript library
+	 */
+	abstract public function getName();
 
 	/**
      * Checking if specified theme is available for this editor

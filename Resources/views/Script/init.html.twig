@@ -1,11 +1,11 @@
-<script type="text/javascript" src="{{ library_src }}"></script>
+<script type="text/javascript" src="{{ editor.libUri }}"></script>
 <script type="text/javascript">
     var wysiwyg = new ihqs.wysiwyg(
         "{{ selector }}",
         {
-            library: "{{ library }}",
-            set:     "{{ set }}",
-            theme:   "{{ theme }}"
+            library: "{{ editor.name }}",
+            set:     "{{ editor.set }}",
+            theme:   "{{ editor.theme }}"
         }
     );
     wysiwyg.initHandler();

@@ -37,4 +37,12 @@ class Markitup extends BaseEditor
 			'default',
 		);
 	}
+
+	/**
+     * @see \IHQS\WysiwygBundle\Editor\BaseEditor
+     */
+	public function getName()
+	{
+		return 'markitup';
+	}
 }
