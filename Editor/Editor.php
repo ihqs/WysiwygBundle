@@ -57,7 +57,7 @@ abstract class Editor implements EditorInterface
      */
     public function setTheme($theme)
     {
-		if(!in_array($theme, $this->getAvailableThemes()))
+		if($theme != "custom" && !in_array($theme, $this->getAvailableThemes()))
 		{
 			throw new \InvalidArgumentException('Theme "' . $theme . '" is unknown for this library');
 		}
@@ -77,7 +77,7 @@ abstract class Editor implements EditorInterface
      */
     public function setSettings($set)
     {
-		if(!in_array($set, $this->getAvailableSets()))
+		if($set != "custom" && !in_array($set, $this->getAvailableSets()))
 		{
 			throw new \InvalidArgumentException('Set "' . $set . '" is unknown for this library');
 		}

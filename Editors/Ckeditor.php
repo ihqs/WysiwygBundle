@@ -16,7 +16,7 @@ class Ckeditor extends BaseEditor
      */
 	public function getLibUri()
 	{
-		return $this->basePath . '/vendor/ckeditor/ckeditor_basic.js';
+		return $this->baseUri . '/vendor/ckeditor/ckeditor_basic.js';
 	}
 
 	/**

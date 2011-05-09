@@ -16,7 +16,7 @@ class Markitup extends BaseEditor
      */
 	public function getLibUri()
 	{
-		return $this->basePath . '/vendor/markitup/markitup/jquery.markitup.js';
+		return $this->baseUri . '/vendor/markitup/markitup/jquery.markitup.js';
 	}
 
 	/**

@@ -16,12 +16,17 @@ ihqs.wysiwyg.markitup.prototype.checkDependencies = function()
 
 ihqs.wysiwyg.markitup.prototype.processSettings = function()
 {
-    ihqs.wysiwyg.addStyle('/vendor/markitup/markitup/sets/' + this.settings + '/style.css');
-    this.processedSettings = (typeof(this.settings) == "string") ? ihqs.wysiwyg.markitup.settings[this.settings] : this.settings;
+    if(this.settings != "custom")
+    {
+        ihqs.wysiwyg.addStyle('/vendor/markitup/markitup/sets/' + this.settings + '/style.css');
+        this.processedSettings = (typeof(this.settings) == "string") ? ihqs.wysiwyg.markitup.settings[this.settings] : this.settings;
+    }
+    this.processedSettings = ihqs.wysiwyg.customSettings;
 }
 
 ihqs.wysiwyg.markitup.prototype.processTheme = function()
 {
+    if(this.theme == "custom") { return ; }
     ihqs.wysiwyg.addStyle('/vendor/markitup/markitup/skins/' + this.theme + '/style.css');
 }
 
@@ -31,7 +36,7 @@ ihqs.wysiwyg.markitup.prototype.handle = function(selector)
 
     this.processSettings();
     this.processTheme();
-
+    
     $('.' + this.selector).markItUp(this.processedSettings);
 }
 

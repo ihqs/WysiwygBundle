@@ -42,6 +42,12 @@ ihqs.wysiwyg.prototype.doInitHandler = function()
     this.editor.handle(this.selector);
 }
 
+ihqs.wysiwyg.customSettings = null
+ihqs.wysiwyg.setSettings = function(settings)
+{
+    ihqs.wysiwyg.customSettings = settings;
+}
+
 ihqs.wysiwyg.exception = function(message)
 {
     this.name    = "ihqs - Wysiwyg Exception";
