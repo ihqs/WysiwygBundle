@@ -50,6 +50,13 @@ Add script to your templates at the bottom of your page (for faster page display
     // anyfile.html.twig
     {% render "IHQSWysiwygBundle:Script:init" %}
 
+You got to add this asset to your webpage.
+
+    // anyfile.html.twig
+    <script type="text/javascript" src="{{ asset('bundles/ihqswysiwyg/js/wysiwyg.js') }}"></script>
+
+You'll need AssetBundle and you'll also need to launch the command assets:install
+
 ## Available editors
  
 "°" means it's default configuration
