@@ -16,7 +16,7 @@ class Ckeditor extends BaseEditor
      */
 	public function getLibUri()
 	{
-		return $this->baseUri . '/vendor/ckeditor/ckeditor_basic.js';
+		return $this->baseUri . '/vendor/ckeditor/ckeditor.js';
 	}
 
 	/**
@@ -25,7 +25,10 @@ class Ckeditor extends BaseEditor
 	public function getAvailableThemes()
 	{
 		return array(
-
+			'default',
+			'kama',
+			'office2003',
+			'v2',
 		);
 	}
 
@@ -35,7 +38,8 @@ class Ckeditor extends BaseEditor
 	public function getAvailableSets()
 	{
 		return array(
-
+			'default',
+			'full'
 		);
 	}
 
@@ -44,6 +48,6 @@ class Ckeditor extends BaseEditor
      */
 	public function getName()
 	{
-		return 'Ckeditor';
+		return 'ckeditor';
 	}
 }

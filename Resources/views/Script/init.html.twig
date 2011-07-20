@@ -1,12 +1,29 @@
 <script type="text/javascript" src="{{ editor.libUri }}"></script>
 <script type="text/javascript">
-    var wysiwyg = new ihqs.wysiwyg(
-        "{{ selector }}",
+    var previousLoad = window.onload;
+
+    var wysiwygLoad = function()
+    {
+        var wysiwyg = new ihqs.wysiwyg(
+            "{{ selector }}",
+            {
+                library: "{{ editor.name }}",
+                set:     "{{ editor.settings }}",
+                theme:   "{{ editor.theme }}"
+            }
+        );
+        wysiwyg.initHandler(); 
+    }
+
+    wysiwygLoad();
+
+    window.onload = function()
+    {
+        // wysiwygLoad();
+
+        if(typeof(previousLoad) == "function")
         {
-            library: "{{ editor.name }}",
-            set:     "{{ editor.settings }}",
-            theme:   "{{ editor.theme }}"
+            previousLoad();
         }
-    );
-    wysiwyg.initHandler();
+    };
 </script>

@@ -13,12 +13,19 @@ ihqs.wysiwyg.ckeditor.prototype.checkDependencies = function()
 
 ihqs.wysiwyg.ckeditor.prototype.processSettings = function()
 {
-
+    if(this.settings != "custom")
+    {
+        this.processedSettings = (typeof(this.settings) == "string") ? ihqs.wysiwyg.ckeditor.settings[this.settings] : this.settings;
+    }
+    else
+    {
+        this.processedSettings = ihqs.wysiwyg.customSettings;
+    }
 }
 
 ihqs.wysiwyg.ckeditor.prototype.processTheme = function()
 {
-    
+    this.processedSettings.skin = this.theme;
 }
 
 ihqs.wysiwyg.ckeditor.prototype.handle = function(selector)
@@ -28,18 +35,20 @@ ihqs.wysiwyg.ckeditor.prototype.handle = function(selector)
     this.processSettings();
     this.processTheme();
 
-    var textareas = document.getElementsByTagName('textarea');
-    for(key in textareas)
-    {
-        var textarea = textareas[key];
-        if(textarea.className != this.selector) { continue; }
-
-        CKEDITOR.replace(textarea);
-    }
+    CKEDITOR.replace($('.' + this.selector).get(0), this.processedSettings);
+    CKEDITOR.plugins.addExternal( 'nuitblanche', '/bundles/ihqsnuitblanche/js/ckeditor/plugins/nuitblanche/' );
 }
 
 ihqs.wysiwyg.ckeditor.settings = {
 
     "default" : {
+        extraPlugins : 'nuitblanche',
+        toolbar : [
+            ['Format', 'Bold', 'Italic', 'Strike', 'RemoveFormat', '-', 'Image', 'Link', '-', 'AddPlayer', 'AddClanWar', 'AddRaceImage', '-', 'Clean', 'Preview']
+        ]
+    },
+
+    "full" : {
+        toolbar : 'Full'
     }
 }

@@ -21,7 +21,10 @@ ihqs.wysiwyg.markitup.prototype.processSettings = function()
         ihqs.wysiwyg.addStyle('/vendor/markitup/markitup/sets/' + this.settings + '/style.css');
         this.processedSettings = (typeof(this.settings) == "string") ? ihqs.wysiwyg.markitup.settings[this.settings] : this.settings;
     }
-    this.processedSettings = ihqs.wysiwyg.customSettings;
+    else
+    {
+        this.processedSettings = ihqs.wysiwyg.customSettings;
+    }
 }
 
 ihqs.wysiwyg.markitup.prototype.processTheme = function()

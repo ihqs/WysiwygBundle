@@ -24,7 +24,7 @@ ihqs.wysiwyg.prototype.initHandler = function()
         var exists = ihqs.wysiwyg.handlers[this.handler];
         if(!exists)
         {
-            throw new ihqs.wysiwyg.exception('Handler is not recognized');
+            throw new ihqs.wysiwyg.exception('Handler "' + this.handler + '" is not recognized');
         }
         ihqs.wysiwyg.addScript('/wysiwyg/' + this.handler + '.js', function() { self.doInitHandler.apply(self); });
     }
