@@ -42,9 +42,8 @@ ihqs.wysiwyg.ckeditor.prototype.handle = function(selector)
 ihqs.wysiwyg.ckeditor.settings = {
 
     "default" : {
-        extraPlugins : 'nuitblanche',
         toolbar : [
-            ['Format', 'Bold', 'Italic', 'Strike', 'RemoveFormat', '-', 'Image', 'Link', '-', 'AddPlayer', 'AddClanWar', 'AddRaceImage', '-', 'Clean', 'Preview']
+            ['Format', 'Bold', 'Italic', 'Strike', 'RemoveFormat', '-', 'Image', 'Link', '-', 'Clean', 'Preview']
         ]
     },
 
