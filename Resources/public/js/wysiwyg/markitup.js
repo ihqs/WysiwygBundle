@@ -40,7 +40,7 @@ ihqs.wysiwyg.markitup.prototype.handle = function(selector)
     this.processSettings();
     this.processTheme();
     
-    $('.' + this.selector).markItUp(this.processedSettings);
+    $('textarea.' + this.selector).markItUp(this.processedSettings);
 }
 
 ihqs.wysiwyg.markitup.settings = {
