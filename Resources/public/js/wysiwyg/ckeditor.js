@@ -25,6 +25,7 @@ ihqs.wysiwyg.ckeditor.prototype.processSettings = function()
 
 ihqs.wysiwyg.ckeditor.prototype.processTheme = function()
 {
+    if(!this.processedSettings) { this.processedSettings = {}; }
     this.processedSettings.skin = this.theme;
 }
 
