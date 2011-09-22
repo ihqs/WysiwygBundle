@@ -2,6 +2,8 @@ ihqs.wysiwyg.ckeditor = function(settings, theme)
 {
     this.checkDependencies();
 
+    this.processedSettings = {};
+
     this.settings = settings;
     this.theme    = theme;
 }
@@ -25,7 +27,8 @@ ihqs.wysiwyg.ckeditor.prototype.processSettings = function()
 
 ihqs.wysiwyg.ckeditor.prototype.processTheme = function()
 {
-    if(!this.processedSettings) { this.processedSettings = {}; }
+    if(!this.processedSettings) { this.processedSettings = {} };
+    
     this.processedSettings.skin = this.theme;
 }
 
@@ -36,8 +39,11 @@ ihqs.wysiwyg.ckeditor.prototype.handle = function(selector)
     this.processSettings();
     this.processTheme();
 
-    CKEDITOR.replace($('textarea.' + this.selector).get(0), this.processedSettings);
-    CKEDITOR.plugins.addExternal( 'nuitblanche', '/bundles/ihqsnuitblanche/js/ckeditor/plugins/nuitblanche/' );
+    if($('textarea.' + this.selector).length > 0)
+    {
+        CKEDITOR.replace($('textarea.' + this.selector).get(0), this.processedSettings);
+        CKEDITOR.plugins.addExternal( 'nuitblanche', '/bundles/ihqsnuitblanche/js/ckeditor/plugins/nuitblanche/' );
+    }
 }
 
 ihqs.wysiwyg.ckeditor.settings = {
