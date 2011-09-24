@@ -1,7 +1,5 @@
 <script type="text/javascript" src="{{ editor.libUri }}"></script>
 <script type="text/javascript">
-    var previousLoad = window.onload;
-
     var wysiwygLoad = function()
     {
         var wysiwyg = new ihqs.wysiwyg(
@@ -15,15 +13,5 @@
         wysiwyg.initHandler(); 
     }
 
-    wysiwygLoad();
-
-    window.onload = function()
-    {
-        // wysiwygLoad();
-
-        if(typeof(previousLoad) == "function")
-        {
-            previousLoad();
-        }
-    };
+    $(document).ready(wysiwygLoad);
 </script>
