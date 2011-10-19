@@ -69,9 +69,17 @@ ihqs.wysiwyg.addStyle = function(uri)
 ihqs.wysiwyg.addScript = function(uri, callback)
 {
     var script = document.createElement('script');
-    if(callback)
+
+    if (script.addEventListener)
     {
-        script.onload = callback
+        script.addEventListener("load", callback, false);
+    }
+    else
+    {
+         script.onreadystatechange = function()
+         {
+            if (this.readyState == "loaded") { callback.call(this); }
+         }
     }
 
     with(script)
